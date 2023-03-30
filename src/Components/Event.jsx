@@ -20,7 +20,7 @@ const Event = () => {
            
              <Box  width={{base:"50vw",md:"60vw",lg:"70vw" }}  m="auto" mt="6" >
                  
-                <Input bg="#fff" p="6" placeholder='Enter title'/>
+                <Input bg="#fff" p="6" placeholder='Paste or enter registration link here'/>
              </Box>
 
              {/* ----------------- */}
@@ -58,8 +58,20 @@ const Event = () => {
               </Box>
 
          </Box>
+
+
+         {/* ------------------------- About Content  --------------------------- */}
+
+
+         <Box border="2px solid red" width="80vw" m="auto" mt="20">
+                    
+                    <Box border="3px solid black">
+
+                    </Box>
+
+
+         </Box>
     
-     
 
     </Box>
     </>
