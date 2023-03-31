@@ -3,15 +3,10 @@
 
 }
 
-/* .WhenContainer{
-    border: 2px solid rgb(20, 221, 47);
-} */
-
 
 
 @media screen and (max-width:667px) {
     .WhenContainer{
-        /* border: 2px solid rgb(20, 221, 47); */
         flex-direction: column;
     }
     .event{

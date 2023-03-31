@@ -9,7 +9,7 @@ const Navbar = () => {
       <Box  w='100%' p={6} boxShadow="lg" border="0.1px solid gray" display="flex" justifyContent={"space-between"}>
        
        <Box>
-         <Link to={"/creteb"}>
+         <Link to={"/event"}>
           <Text fontSize={"1.2rem"} fontWeight="600">
             Task Mangement
           </Text>
@@ -17,7 +17,7 @@ const Navbar = () => {
        </Box>
        <Box display={"flex"} justifyContent="space-between" gap={"10"}>
           
-           <Link to={"/login"}>
+           <Link to={"/creteb"}>
            <Text  fontSize={"1.2rem"} fontWeight="600"> Write blog  </Text>
            </Link>
 

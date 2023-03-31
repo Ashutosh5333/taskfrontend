@@ -20,7 +20,7 @@ const Event = () => {
            
              <Box  width={{base:"50vw",md:"60vw",lg:"70vw" }}  m="auto" mt="6" >
                  
-                <Input bg="#fff" p="6" placeholder='Paste or enter registration link here'/>
+                <Input variant="unstyled" bg="#fff" p="6" placeholder='Paste or enter registration link here'/>
              </Box>
 
              {/* ----------------- */}
@@ -68,7 +68,7 @@ const Event = () => {
                     <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600"> ABOUT THE EVENT </Text>
                      <Text  textAlign={"start"} fontStyle="italic"  color={"rgb(20, 75, 89)"} fontSize={"1.1rem"} mt="4" fontWeight="600"> What is the event going to be about? What should people expect? </Text>
-                    <Input type="text" color={"rgb(20, 75, 89)"} fontSize={"2rem"}  placeholder='Write here' border="none" mt="4" textDecoration={"none"} />
+                    <Input variant="unstyled"  type="text" color={"rgb(20, 75, 89)"} fontSize={"2rem"}  placeholder='Write here' border="none" mt="4" textDecoration={"none"} />
                     </Box>
          </Box>
     
@@ -94,14 +94,14 @@ const Event = () => {
                        <Box border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto" width="150px" height="150px" mt="7" borderRadius={"80"} >
                        <label>
                         <Image m="auto" width="50px" mt="9" justifyContent="center" justifyItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png" alt="iamge" />
-                       <Input type="file" display={"none"} />
+                       <Input variant="unstyled" type="file" display={"none"} />
                        </label> 
                        </Box>
                     </Box>
 
                       <Box  width="70vw" p="4" mt="4" > 
                        <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize="1.3rem" mt="4" ml="4" fontWeight={"600"} > Speaker1 </Text>
-                        <Input  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
+                        <Input variant="unstyled"  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
                       </Box>
 
                    </Box>
@@ -140,14 +140,14 @@ const Event = () => {
                        <Box border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto" width="150px" height="150px" mt="7" borderRadius={"80"} >
                        <label>
                         <Image m="auto" width="50px" mt="9" justifyContent="center" justifyItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png" alt="iamge" />
-                       <Input type="file" display={"none"} />
+                       <Input variant="unstyled"  type="file" display={"none"} />
                        </label> 
                        </Box>
                     </Box>
 
                       <Box  width="70vw" p="4" mt="4" > 
                        <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize="1.3rem" mt="4" ml="4" fontWeight={"600"} > Moderator1 </Text>
-                        <Input  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
+                        <Input variant="unstyled"  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
                       </Box>
 
                    </Box>
@@ -172,7 +172,7 @@ const Event = () => {
                    <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600">READING MATERIAL AND RESOURCES</Text>
                      <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"}  mt="4" fontWeight="600">Share links or documents that you think people can/should refer to before the event  </Text>
-                     <Input fontSize={"1.2rem"} placeholder='write here'  border={"none"}/>
+                     <Input variant="unstyled"  fontSize={"1.2rem"} placeholder='write here'  border={"none"}/>
                    </Box>
                    
                    {/* ------------------------------- */}
@@ -180,7 +180,7 @@ const Event = () => {
                    <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600">JOINING INFO</Text>
                      <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize={"1.1rem"} fontStyle="italic" mt="4" fontWeight="600">Share links to the event or live stream  </Text>
-                     <Input fontSize={"1.2rem"} placeholder='write here'  border={"none"}/>
+                     <Input variant="unstyled"  fontSize={"1.2rem"} placeholder='write here'  border={"none"}/>
                    </Box>
                    
                    {/* ------------------------------- */}
