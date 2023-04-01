@@ -7,16 +7,19 @@ import { Signup } from './../pages/Signup';
 import Dashboard from '../Components/Dashboard';
 import UserBoard from '../Components/UserBoard';
 import Createblog from '../Components/Createblog';
+import SingleBlog from '../Components/SingleBlog';
+import SingnTablist from '../Components/SingnTablist';
 
 const AllRoutes = () => {
   return (
     <Routes>
      <Route  path='/'    element={<Home/>}/>
+     <Route  path='/:blogId'    element={<SingleBlog/>}/>
      <Route  path= '/creteb'  element={<Createblog/>} />
      <Route  path='/event'  element={<Event/>}/>
      <Route  path='/dash'  element={<Dashboard/>}/>
      <Route  path= '/user'  element={<UserBoard/>} />
-
+     <Route  path= '/singtab'  element={<SingnTablist/>} />
      <Route  path='/login'  element={<Login/>} />
      <Route  path='/signup' element={<Signup/>} />
 

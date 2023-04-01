@@ -21,13 +21,11 @@ const Navbar = () => {
            <Text  fontSize={"1.2rem"} fontWeight="600"> Write blog  </Text>
            </Link>
 
-           <Link to={"/login"}>
+           <Link to={"/singtab"}>
            <Text  fontSize={"1.2rem"} fontWeight="600"> Login  </Text>
            </Link>
 
-           <Link to={'/signup'}>
-           <Text  fontSize={"1.2rem"} fontWeight="600"> Signup </Text>
-           </Link>
+         
 
        </Box>
       
