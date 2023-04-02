@@ -1,13 +1,89 @@
-import { Box, Button, Card, CardBody, Input, InputGroup,InputLeftElement, InputRightElement, VStack, useColorModeValue } from '@chakra-ui/react'
+import { Button, Card, CardBody, Input, InputGroup,InputLeftElement, InputRightElement, VStack, useColorModeValue, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import {  EmailIcon,  UnlockIcon,  ViewIcon,  ViewOffIcon,
 } from "@chakra-ui/icons";
 import { CiUser } from "react-icons/ci";
 import { BsCardImage } from "react-icons/bs";
+import {useDispatch} from "react-redux"
+import { Signupdata } from '../Redux/AuthReducer/action';
+import { useNavigate } from 'react-router-dom';
 
 export const Signup = () => {
   const colorScheme = useColorModeValue("blue", "green");
   const [show, setShow] = useState(false);
+  const [image,SetImage] = useState("")
+  const [url ,SetUrl] = useState("")
+  const dispatch = useDispatch()
+  const toast = useToast()
+  const navigate = useNavigate()
+
+   const [post ,SetPost] = useState({
+     name:"",
+     email:"",
+     password:"",
+     pic:url
+   })
+
+      const handleChange = (e) => {
+          const {name,value} = e.target
+          SetPost({...post,[name]:value})
+      }
+
+
+      const handleSubmit = () =>{
+        Imagepost()
+        dispatch(Signupdata(post))
+        .then((res) =>{
+      if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is already present"){
+             toast({
+              position:"top",
+              status : "success",
+              title:"user created Successfully Account"
+             })
+             navigate("/login")
+      }
+      else{
+        
+        toast({
+          position : 'top',
+          status : "error",
+          title:"user Already exits try Another"
+      })
+
+      }
+       
+   })
+   .catch((err)=>{
+    toast({
+      position : 'top',
+      status : "error",
+      title:"Something went wrong"
+  })
+
+   })
+    
+  }
+
+
+      
+      const  Imagepost = () =>{
+        const data = new FormData()
+        data.append("file",image)
+        data.append("upload_preset","bloguser")
+        data.append("cloud_name","dgvfiwlap")
+        fetch("https://api.cloudinary.com/v1_1/dgvfiwlap/image/upload",{
+          method:"post",
+          body:data
+        })
+        .then(res =>res.json())
+        .then(data =>{
+           SetUrl(data.url)
+        }).catch(err =>{
+          console.log(err)
+        })
+      }
+
+      
 
   return (
     <>
@@ -23,6 +99,7 @@ export const Signup = () => {
           <Input placeholder="Name*"
                 type="name"
                 name="name"
+                onChange={handleChange}
                 size="lg" />
           </InputGroup>
 
@@ -37,10 +114,10 @@ export const Signup = () => {
               <Input
                 placeholder="Paste URL*"
                 type="file"
-                name="avatar_url"
-                //  display={"none"}
+                name="pic"
+                 onChange={(e) => SetImage(e.target.files[0])}
                 size="lg"
-                accept="image/*"
+              
                 sx={{
                   "::file-selector-button": {
                     height: 8,
@@ -66,7 +143,7 @@ export const Signup = () => {
                 type="email"
                 name="email"
                 size="lg"
-             
+                onChange={handleChange}
               />
             </InputGroup>
 
@@ -82,7 +159,8 @@ export const Signup = () => {
                 placeholder="Password*"
                 name="password"
                 size="lg"
-              
+                onChange={handleChange}
+
               />
               <InputRightElement width="4.5rem" position="absolute" top="1">
                 <Button
@@ -100,7 +178,7 @@ export const Signup = () => {
               </InputRightElement>
             </InputGroup>
             <Button
-             
+               onClick={handleSubmit}
               width="100%"
             colorScheme={colorScheme}
               size="lg"

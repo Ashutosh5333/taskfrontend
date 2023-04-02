@@ -52,7 +52,7 @@ export const  Signupdata = (payload) => (dispatch) => {
 }
 
 
-export const  Loginupdata = (payload) => (dispatch) => {
+export const  Logindata = (payload) => (dispatch) => {
    dispatch(getLoginReq())
    return axios.post(`https://super-pear-viper.cyclic.app/login`,payload)
       .then((res)=>{
