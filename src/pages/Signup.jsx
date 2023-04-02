@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, Input, InputGroup,InputLeftElement, InputRightElement, VStack, useColorModeValue } from '@chakra-ui/react'
+import { Box, Button, Card, CardBody, Input, InputGroup,InputLeftElement, InputRightElement, VStack, useColorModeValue } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import {  EmailIcon,  UnlockIcon,  ViewIcon,  ViewOffIcon,
 } from "@chakra-ui/icons";
@@ -26,9 +26,9 @@ export const Signup = () => {
                 size="lg" />
           </InputGroup>
 
- 
           <InputGroup position="relative">
               <InputLeftElement
+                textAlign={"center"}
                 pointerEvents="none"
                 position="absolute"
                 top="1"
@@ -52,6 +52,8 @@ export const Signup = () => {
              
               />
             </InputGroup>
+          
+
             <InputGroup position="relative">
               <InputLeftElement
                 pointerEvents="none"

@@ -1,4 +1,5 @@
-import { Box, Image, Input, Text, } from '@chakra-ui/react'
+import { Box,  Input, Text } from '@chakra-ui/react'
+import { Avatar } from '@chakra-ui/react'
 import React from 'react'
 import {AiOutlineCalendar, AiOutlineClockCircle} from "react-icons/ai"
 import "./style/Event.css"
@@ -63,7 +64,7 @@ const Event = () => {
          {/* ------------------------- About Content  --------------------------- */}
 
 
-         <Box  width="60vw" m="auto" mt="40">
+         <Box  width="60vw" m="auto" mt="60">
                     
                     <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600"> ABOUT THE EVENT </Text>
@@ -87,20 +88,23 @@ const Event = () => {
 
                   <Box border="1px dashed gray" height={"40vh"} p="6"  > 
                   
-
                    <Box border="1px solid gray"  width="50vw" height="30vh" m="auto" display={"flex"} justifyContent="space-aroud" gap="5" >
                     
-                    <Box  width="35vw"  ml="2">
-                       <Box border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto" width="150px" height="150px" mt="7" borderRadius={"80"} >
+
+                    <Box  width="35vw" m="auto" ml="2">
+                      
                        <label>
-                        <Image m="auto" width="50px" mt="9" justifyContent="center" justifyItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png" alt="iamge" />
+                       <Box  border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto"  width={{base:"70px",md:"100px",lg:"150px" }}  height={{base:"70px",md:"100px",lg:"150px" }} borderRadius={"80"}>
+                      <Avatar size={{base:"xs",md:"sm",lg:"md"}}  position={"relative"} top="30%" alignItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png"/>
+                      </Box>
+
                        <Input variant="unstyled" type="file" display={"none"} />
                        </label> 
-                       </Box>
+                      
                     </Box>
 
-                      <Box  width="70vw" p="4" mt="4" > 
-                       <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize="1.3rem" mt="4" ml="4" fontWeight={"600"} > Speaker1 </Text>
+                      <Box  width="70vw" p="4" m="auto" > 
+                       <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize={{base:"1rem",md:"1.5rem",lg:"2rem" }} mt="4" ml="4" fontWeight={"600"} > Speaker1 </Text>
                         <Input variant="unstyled"  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
                       </Box>
 
@@ -119,34 +123,37 @@ const Event = () => {
          </Box>
     
         
+
         {/* -------------------------- About the modrator --------------------  */}
 
-       
         <Box width="60vw" m="auto" mt="20" mb="20" height="60vh">
                     
                     <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600"> ABOUT THE MODERATOR </Text>
-                     <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the moderator </Text>
+                     <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the moderator</Text>
                    </Box>
                    
                    {/* ------------------------------- */}
 
                   <Box border="1px dashed gray" height={"40vh"} p="6"  > 
                   
-
                    <Box border="1px solid gray"  width="50vw" height="30vh" m="auto" display={"flex"} justifyContent="space-aroud" gap="5" >
                     
-                    <Box  width="35vw" ml="2" >
-                       <Box border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto" width="150px" height="150px" mt="7" borderRadius={"80"} >
+
+                    <Box  width="35vw" m="auto" ml="2">
+                      
                        <label>
-                        <Image m="auto" width="50px" mt="9" justifyContent="center" justifyItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png" alt="iamge" />
-                       <Input variant="unstyled"  type="file" display={"none"} />
+                       <Box  border=".1px solid gray" backgroundColor="rgb(214, 240, 247)"  m="auto"  width={{base:"70px",md:"100px",lg:"150px" }}  height={{base:"70px",md:"100px",lg:"150px" }} borderRadius={"80"}>
+                      <Avatar size={{base:"xs",md:"sm",lg:"md"}}  position={"relative"} top="30%" alignItems={"center"} src="https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png"/>
+                      </Box>
+
+                       <Input variant="unstyled" type="file" display={"none"} />
                        </label> 
-                       </Box>
+                      
                     </Box>
 
-                      <Box  width="70vw" p="4" mt="4" > 
-                       <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize="1.3rem" mt="4" ml="4" fontWeight={"600"} > Moderator1 </Text>
+                      <Box  width="70vw" p="4" m="auto" > 
+                       <Text textAlign={"start"} color={"rgb(20, 75, 89)"} fontSize={{base:"1rem",md:"1.5rem",lg:"2rem" }} mt="4" ml="4" fontWeight={"600"} > Moderator1</Text>
                         <Input variant="unstyled"  placeholder='About The Speaker' outline={"none"} fontWeight={"600"} colorScheme="blue" mt="1" border={"none"} />
                       </Box>
 
@@ -164,6 +171,7 @@ const Event = () => {
                 {/* ---------------- */}
          </Box>
 
+       
      
         {/* ----------------------  About reading material ------------------- */}
 
