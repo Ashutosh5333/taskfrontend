@@ -7,7 +7,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <Box border="4px solid yellow" width={{base:"80vw",md:"60vw",lg:"70vw" }} height={"50vh"} m="auto">
+    <Box border="4px solid yellow" width={{base:"90vw",md:"60vw",lg:"70vw" }} height={"50vh"} m="auto">
        
        <Box  display={"flex"}  gap="5" p="4" >
 
@@ -50,10 +50,10 @@ const Dashboard = () => {
                </Box>
           </Box>
 
-
+               
           <Box > 
-                  <Image  marginRight={{base:"40" }} 
-                  maxW={{ base: "100%", md: "70%", lg: "100%" }} height="30vh" src="https://itsg-global.com/wp-content/uploads/2016/09/react-js-to-use-or-not-to-use.png" />
+                  <Image  marginRight={{base:"40" }} borderRadius={"10"}
+                  maxW={{ base: "70%", md: "70%", lg: "100%" }}    height={{base:"20vh",md:"20vh",lg:"30vh"}} src="https://itsg-global.com/wp-content/uploads/2016/09/react-js-to-use-or-not-to-use.png" />
           </Box>
           
        </Box>

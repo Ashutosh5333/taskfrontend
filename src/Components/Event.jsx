@@ -81,7 +81,7 @@ const Event = () => {
                     
                     <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600"> ABOUT THE SPEAKERS </Text>
-                     <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the speakers that are relavent to the topic, to create interest in the event </Text>
+                     <Text noOfLines={2}  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the speakers that are relavent to the topic, to create interest in the event </Text>
                    </Box>
                    
                    {/* ------------------------------- */}
@@ -130,7 +130,7 @@ const Event = () => {
                     
                     <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600"> ABOUT THE MODERATOR </Text>
-                     <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the moderator</Text>
+                     <Text noOfLines={2}  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"} mt="4" fontWeight="600"> Mention a few points about the moderator</Text>
                    </Box>
                    
                    {/* ------------------------------- */}
@@ -179,7 +179,7 @@ const Event = () => {
                     
                    <Box  width="60vw" m="auto" p="4">
                      <Text textAlign={"start"} fontSize={"1rem"} letterSpacing="2px" color={"gray.400"} fontWeight="600">READING MATERIAL AND RESOURCES</Text>
-                     <Text  textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"}  mt="4" fontWeight="600">Share links or documents that you think people can/should refer to before the event  </Text>
+                     <Text noOfLines={2} textAlign={"start"} color={"rgb(20, 75, 89)"} fontStyle="italic" fontSize={"1.1rem"}  mt="4" fontWeight="600">Share links or documents that you think people can/should refer to before the event  </Text>
                      <Input variant="unstyled"  fontSize={"1.2rem"} placeholder='write here'  border={"none"}/>
                    </Box>
                    
