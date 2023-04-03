@@ -1,8 +1,21 @@
 import { Avatar, Box, Button, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllblogData } from '../Redux/AppReducer/action'
 
 
 const Dashboard = () => {
+
+  const dispatch = useDispatch()
+  const BlogData = useSelector((store) => store.AppReducer.BlogData)
+   console.log("blog" ,BlogData)
+
+   
+
+ useEffect(() =>{
+   dispatch(getAllblogData)
+ },[])
+
 
 
   return (

@@ -1,11 +1,13 @@
 import { Box,  Input, Text } from '@chakra-ui/react'
 import { Avatar } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {AiOutlineCalendar, AiOutlineClockCircle} from "react-icons/ai"
 import "./style/Event.css"
 
 
+
 const Event = () => {
+ 
 
 
   return (

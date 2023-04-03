@@ -81,7 +81,7 @@ const Deletedatafai = () => {
 
       // -------------  Add Blog  ------------- //
 
-const  ADDProducts =(newdata) => (dispatch) => {
+const  Addblogs =(newdata) => (dispatch) => {
   dispatch(AdddataReq)
   return axios.post(`https://super-pear-viper.cyclic.app/task/create`,newdata ,{
    headers:{
@@ -98,9 +98,9 @@ const  ADDProducts =(newdata) => (dispatch) => {
 
    // ---------------------     Get blog data    -------------------- //
 
-  const getData = (dispatch) => {
+  const getAllblogData = (dispatch) => {
       dispatch(getdataReq())
-  return axios.get(`https://super-pear-viper.cyclic.app/task`,{
+  return axios.get(`https://super-pear-viper.cyclic.app/allblog`,{
        headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`
@@ -155,4 +155,4 @@ export const GetMypost = (dispatch) => {
 
 
 
-  export {getData ,ADDProducts }
+  export {getAllblogData ,Addblogs }

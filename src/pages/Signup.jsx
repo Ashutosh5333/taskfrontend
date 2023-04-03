@@ -40,7 +40,7 @@ export const Signup = () => {
               status : "success",
               title:"user created Successfully Account"
              })
-             navigate("/login")
+          
       }
       else{
         
