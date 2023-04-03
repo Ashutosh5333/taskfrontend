@@ -1,7 +1,7 @@
 import * as types from "./actionTypes"
 import axios from "axios"
 
-const token = JSON.parse(localStorage.getItem("token"))
+
 
 // ------------    GetData blog   ------------ //
 
@@ -78,7 +78,8 @@ const Deletedatafai = () => {
            }
          }
          
-
+         let token = JSON.parse(localStorage.getItem("token"))
+         //  console.log("tokenaction",token)
       // -------------  Add Blog  ------------- //
 
 const  Addblogs =(newdata) => (dispatch) => {

@@ -27,12 +27,14 @@ const Login = () => {
    const handleSubmit = () =>{
          dispatch(Logindata(post))
          .then((res) =>{
+          console.log(res)
              if(res.type === "GET_LOGIN_SUCCESS" && res.payload.data.msg == "Login sucessfull"){
               toast({
                 position:"top",
                 status : "success",
                 title:res.payload.data.msg
                })
+                localStorage.setItem("token", JSON.stringify(res.payload.data.token))
                //  navigate("/")
              }else{
               toast({
