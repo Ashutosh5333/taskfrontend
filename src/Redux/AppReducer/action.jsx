@@ -21,6 +21,27 @@ const getdataFail = () => {
        type :types.GET_DATA_FAILURE
    }
 }
+
+// -----------------
+
+const getsingledataReq = () =>{
+   return {
+      type: types.GETSINGLE_DATA_REQUEST
+   }
+} 
+const getsingledataSucess = (payload) => {
+   return {
+      type :types.GETSINGLE_DATA_SUCCESS,
+      payload,
+   }
+}
+const getsingledataFail = () => {
+  return {
+      type :types.GETSINGLE_DATA_FAILURE
+  }
+}
+
+
 // -------- ADD  blog  ---------- 
 
 const AdddataReq = () =>{
@@ -152,6 +173,23 @@ export const GetMypost = (dispatch) => {
    })
 }
 
+
+//  ---------------- GET single data ---------------------- //
+
+ export const getSingleblogData = (_id) => (dispatch) => {
+   dispatch(getsingledataReq())
+return axios.get(`https://super-pear-viper.cyclic.app/allblog/${_id}`,{
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+})
+ .then((res)=>{
+ return    dispatch(getsingledataSucess(res.data))
+ }).catch((e)=>{
+  return    dispatch(getsingledataFail())
+ })
+}
 
 
 

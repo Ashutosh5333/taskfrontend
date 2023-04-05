@@ -15,7 +15,8 @@ const AllRoutes = () => {
   return (
     <Routes>
      <Route  path='/'    element={<Home/>}/>
-     <Route  path='/:blogId'    element={<SingleBlog/>}/>
+     {/* <Route  path='/:Id'    element={<SingleBlog/>}/> */}
+     <Route  path="/blog/:Id"    element={<SingleBlog/>}/>
      <Route  path= '/creteb'  element={
        <PrivateRoute> 
      <Createblog/>

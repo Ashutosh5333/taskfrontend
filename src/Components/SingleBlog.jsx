@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Avatar, Box, Button, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getSingleblogData } from '../Redux/AppReducer/action'
+
 
 const SingleBlog = () => {
+   const [single ,Setsingle] = useState("")
+  const dispatch = useDispatch()
+    const {Id} = useParams()
+ 
+
+    useEffect(() =>{
+   dispatch(getSingleblogData(Id)).then((res) =>{
+      Setsingle(res.payload)
+   })
+  },[Id])
+   
+   console.log(single)
 
 
   return (
     <>
-   <Box border="4px solid yellow" width={{base:"80vw",md:"60vw",lg:"70vw" }} height={"50vh"} m="auto">
-       
-       <Box  display={"flex"}  gap="5" p="4" >
 
+   <Box  width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto">
+       
+       <Box border={"2px solid black"} display={"flex"} justifyContent={"space-between"}>
+
+       <Box  display={"flex"}  gap="5" p="4" >
               <Wrap >
                   <WrapItem>
                     <Avatar
@@ -26,21 +44,27 @@ const SingleBlog = () => {
                  <Text m="auto" mt="3" > . Saturday  </Text>
                  <Text mt="3" > 30 march </Text>
               </Box>
-
        </Box>
 
+          
+       </Box>
 
-       {/* ----------- */}
+      
+
+            <Text  textAlign={"start"} fontSize={{base:"1rem",md:"1.5rem",lg:"1.5rem" }} fontWeight={"600"}  noOfLines={{ base: 3, md: 2 }}>  What is React  </Text>
+
+           <Box border="2px solid red" m="auto"> 
+                  <Image  
+                  maxW={{ base: "100%", md: "100vw", lg: "100vw" }}  src="https://itsg-global.com/wp-content/uploads/2016/09/react-js-to-use-or-not-to-use.png" />
+          </Box>
 
 
        <Box  display={"flex"} justifyContent={"space-between"} gap="5">
 
           <Box width={"60vw"} height="30vh" p="4">
 
-            <Text  textAlign={"start"} fontSize={{base:"1rem",md:"1.5rem",lg:"1.5rem" }} fontWeight={"600"}  noOfLines={{ base: 3, md: 2 }}>  What is React  </Text>
-                
-                <Box display={{ base: "none", md: "block" }} >
-              <Text noOfLines={3}  textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1rem" }} >ReactJS is one of the most popular JavaScript libraries for mobile and web application development. Created by Facebook, React contains a collection of reusable JavaScript code snippets used for user interface (UI) building called components. It's important to note that ReactJS is not a JavaScript framework   </Text>
+                <Box  >
+              <Text textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1.2rem" }} >{single.description}  </Text>
                 </Box>
 
                <Box textAlign={"start"} mt="4" mb="4" display={"flex"} >
@@ -50,17 +74,14 @@ const SingleBlog = () => {
           </Box>
 
 
-          <Box > 
-                  <Image  marginRight={{base:"40" }} 
-                  maxW={{ base: "100%", md: "70%", lg: "100%" }} height="30vh" src="https://itsg-global.com/wp-content/uploads/2016/09/react-js-to-use-or-not-to-use.png" />
-          </Box>
+      
           
        </Box>
 
        
 
 
-    </Box>
+    </Box> 
     
     </>
   )
