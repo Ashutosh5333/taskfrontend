@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Button, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Avatar, Box, Button, Image,  useColorModeValue, Text, Wrap, WrapItem, HStack,VStack,  useToast,  Tooltip, Flex, Heading, } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { getSingleblogData } from '../Redux/AppReducer/action'
-
+import { getDeleteData, getSingleblogData } from '../Redux/AppReducer/action'
+import {  BsFacebook,  BsTwitter,  BsLinkedin,  BsLink45Deg,  BsBookmarkPlus,} from "react-icons/bs";
+import { DeleteIcon } from '@chakra-ui/icons'
 
 const SingleBlog = () => {
-   const [single ,Setsingle] = useState("")
+  const lightColor = useColorModeValue("#757575", "#9aa0a6");
+   const [single ,Setsingle] = useState()
   const dispatch = useDispatch()
     const {Id} = useParams()
  
@@ -17,72 +19,109 @@ const SingleBlog = () => {
    })
   },[Id])
    
-   console.log(single)
+
+
+   const handleDelete = () =>{
+      dispatch(getDeleteData(single?._id))
+       .then((res) =>{
+         console.log(res)
+       }).catch((err) =>{
+        console.log(err)
+       })
+   }
+
+
 
 
   return (
     <>
-
-   <Box  width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto">
-       
-       <Box border={"2px solid black"} display={"flex"} justifyContent={"space-between"}>
-
-       <Box  display={"flex"}  gap="5" p="4" >
-              <Wrap >
-                  <WrapItem>
-                    <Avatar
-                      className="image"
-                      m="auto"
-                      size={{ base: "md", md: "md", lg: "md" }}
-                      name={"Ashutosh"}
-                    />
-                  </WrapItem>
-                </Wrap>        
-
-              <Box justifyContent={"center"} display={"flex"}  gap="5">
-                <Text m="auto" mt="3" fontWeight={"600"}> Ashutosh </Text>
-                 <Text m="auto" mt="3" > . Saturday  </Text>
-                 <Text mt="3" > 30 march </Text>
+    <Box  width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto">
+     
+     <Flex
+          justifyContent="space-between"
+          direction={{ base: "column", sm: "row" }}
+          gap={{ base: 5, sm: 0 }}
+        >
+          <HStack spacing={5}>
+            <Avatar 
+              name={single?.postedby.name}
+            />
+            <Flex direction="column">
+              
+              <Text fontSize={"lg"}>{single?.postedby.name} </Text>
+              <Text color={lightColor}>
+               
+              </Text>
+            </Flex>
+          </HStack>
+          <hr />
+  
+          <HStack spacing={5}>
+          <Tooltip hasArrow label="Delete Post" placement="top">
+              <Box cursor="pointer">
+                <DeleteIcon  onClick={handleDelete} size={20} color={lightColor} />
               </Box>
-       </Box>
-
-          
-       </Box>
-
-      
-
-            <Text  textAlign={"start"} fontSize={{base:"1rem",md:"1.5rem",lg:"1.5rem" }} fontWeight={"600"}  noOfLines={{ base: 3, md: 2 }}>  What is React  </Text>
-
-           <Box border="2px solid red" m="auto"> 
-                  <Image  
-                  maxW={{ base: "100%", md: "100vw", lg: "100vw" }}  src="https://itsg-global.com/wp-content/uploads/2016/09/react-js-to-use-or-not-to-use.png" />
-          </Box>
-
-
-       <Box  display={"flex"} justifyContent={"space-between"} gap="5">
-
-          <Box width={"60vw"} height="30vh" p="4">
-
-                <Box  >
-              <Text textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1.2rem" }} >{single.description}  </Text>
-                </Box>
-
-               <Box textAlign={"start"} mt="4" mb="4" display={"flex"} >
-               <Button justifyContent={"flex-start"} >  React  </Button>
-               <Text textAlign={"start"} fontWeight={"600"} ml="4" mt="2">  5 min  </Text>            
-               </Box>
-          </Box>
-
-
-      
-          
-       </Box>
-
+            </Tooltip>
+            <Tooltip hasArrow label="Share on Twitter" placement="top">
+              <Box cursor="pointer">
+                <BsTwitter size={20} color={lightColor} />
+              </Box>
+            </Tooltip>
+  
+            <Tooltip hasArrow label="Share on Facebook" placement="top">
+              <Box cursor="pointer">
+                <BsFacebook size={20} color={lightColor} />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="Share on Linkedln" placement="top">
+              <Box cursor="pointer">
+                <BsLinkedin size={20} color={lightColor} />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="Copy link" placement="top">
+              <Box cursor="pointer">
+                <BsLink45Deg size={20} color={lightColor} />
+              </Box>
+            </Tooltip>
+            <Tooltip hasArrow label="Save" placement="top">
+              <Box cursor="pointer">
+                  <BsBookmarkPlus
+                    size={20}
+                    color={lightColor}
+                  />
+              </Box>
+            </Tooltip>
+          </HStack>
+        </Flex> 
+        
+       <Heading  textAlign={"start"}  > {single?.title}  </Heading>
+             <Box width={"100%"} > 
+                    <Image  
+                     w={"100%"}
+                    maxH="700px"
+                    objectFit="cover"
+                     alt="cover"
+                   src={single?.pic} />
+            </Box>
+  
        
+              <Box dangerouslySetInnerHTML={{ __html: single?.description }}/>
+         
+  
+            <Box textAlign={"start"} mt="4" mb="4" display={"flex"} >
+                 <Button justifyContent={"flex-start"} >  React  </Button>
+                 <Text textAlign={"start"} fontWeight={"600"} ml="4" mt="2">  5 min  </Text>            
+           </Box>
+        
+            
+     
+         
+  
+  
+      </Box> 
+   
+      
 
-
-    </Box> 
-    
     </>
   )
 

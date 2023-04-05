@@ -141,7 +141,7 @@ const  Addblogs =(newdata) => (dispatch) => {
     
  export  const getDeleteData =(_id) => (dispatch) => {
    dispatch(DeleteDatareq())
-return axios.delete(`https://super-pear-viper.cyclic.app/delete/${_id}`,{
+return axios.delete(`https://super-pear-viper.cyclic.app/task/delete/${_id}`,{
     headers:{
       "Content-Type":"application/json",
       "Authorization":`Bearer ${token}`

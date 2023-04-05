@@ -11,18 +11,11 @@ const Home = () => {
 
   return (
     <>
-    <Box  w='100%' height={"100vh"} p={6} boxShadow="lg" border="1px solid gray"   display={{base:"row",md:"flex",lg:"flex" }}  justifyContent={"space-between"} gap="10">
-
-         <Box> 
+    <Box  w='90vw' m="auto"  >    
 
          <Dashboard/>
-         </Box>
-
-         <Box> 
-           <UserBoard/>
-         </Box>
-
-
+      
+    
      </Box>
     </>
   )

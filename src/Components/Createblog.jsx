@@ -16,7 +16,7 @@ const Createblog = () => {
       const {name ,value} = e.target
       SetPost({...post,[name]:value})
     }
-    // console.log(post)
+   
 
      const handleSubmit = () =>{
       dispatch(Addblogs(post))
@@ -30,7 +30,7 @@ const Createblog = () => {
         }).catch((err) =>{
           console.log(err)
         })
-        // console.log("hello")
+      
      }
 
 
