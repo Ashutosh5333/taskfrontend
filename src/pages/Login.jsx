@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import {  VStack,  Input,  Button,  InputGroup,  InputRightElement,  CircularProgress, CircularProgressLabel,   useToast,   InputLeftElement,  Card,  CardBody, useColorModeValue,} from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon, EmailIcon, UnlockIcon } from "@chakra-ui/icons";
-import {useNavigate} from "react-router-dom";
+import {json, useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {Logindata, isLoading, isError} from "../Redux/AuthReducer/action"
 
@@ -35,7 +35,9 @@ const Login = () => {
                 title:res.payload.data.msg
                })
                 localStorage.setItem("token", JSON.stringify(res.payload.data.token))
-               //  navigate("/")
+                 localStorage.setItem("data",JSON.stringify(res.payload.data.data))
+                navigate("/")
+                window.location.reload()
              }else{
               toast({
                 position:"top",

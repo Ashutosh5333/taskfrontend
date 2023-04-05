@@ -36,7 +36,7 @@ const Createblog = () => {
 
   return (
     <>
-     <Box border="3px solid gray" height="auto" >
+     <Box  maxH="500px">
          
          <Box width="90vw" m="auto" display="flex" justifyContent={"space-between"} gap="5" mt="10"> 
            <Text fontSize={{base:"1.5rem",md:"1.5rem",lg:"2rem" }} fontWeight={"600"}> Publish A Blog </Text>

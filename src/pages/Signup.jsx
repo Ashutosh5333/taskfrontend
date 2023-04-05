@@ -34,6 +34,7 @@ export const Signup = () => {
         Imagepost()
         dispatch(Signupdata(post))
         .then((res) =>{
+           console.log(res)
       if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is already present"){
              toast({
               position:"top",
@@ -54,6 +55,7 @@ export const Signup = () => {
        
    })
    .catch((err)=>{
+     console.log(err)
     toast({
       position : 'top',
       status : "error",
