@@ -1,5 +1,5 @@
-import { Avatar, Box, Button, Divider, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import { Avatar, Box, Button, Divider, Text, Image, Wrap, WrapItem } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllblogData } from '../Redux/AppReducer/action'
 import Skeltonlist from './Skeltonlist'
@@ -7,28 +7,31 @@ import { Link } from 'react-router-dom'
 
 
 const Dashboard = () => {
-  const [Loading ,SetLoading] = useState(false)
+  
   const dispatch = useDispatch()
+
   const BlogData = useSelector((store) => store.AppReducer.BlogData)
+ 
 
 
  useEffect(() =>{
-   SetLoading(true)
    dispatch(getAllblogData)
-   SetLoading(false)
  },[])
 
-   
+ 
 
 
   return (
     <>
-     {
+
+     
+      {
        BlogData.length> 0 ? 
 
-        BlogData.length > 0 && BlogData  && BlogData.map((el) =>{
+        BlogData.length > 0   &&  
+        BlogData.map((el) =>{
         
-          return    <Box key={el._id}  width={{base:"90vw",md:"90vw",lg:"90vw" }}  m="auto" gap="10">
+          return    <Box key={el._id}  width={{base:"90vw",md:"90vw",lg:"90vw" }}  m="auto" mt="20" gap="10">
        
        <Box  display={"flex"}  gap="5" p="4" >
 
@@ -89,11 +92,10 @@ const Dashboard = () => {
         })
         : <Skeltonlist/>
         
-
-
      }
 
- 
+      
+
     </>
   )
 }

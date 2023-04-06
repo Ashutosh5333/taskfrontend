@@ -1,16 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  useDisclosure,
-  Box,
-  Button,
-  Input,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+import { Modal,  ModalOverlay,  ModalContent,  ModalBody,  useDisclosure,  Box,  Button,  Input,  Heading,  Text,} from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
@@ -40,10 +29,9 @@ const UserEdit = () => {
       }
 
     const handleupdated = (_id) => {
-        // console.log("hello")
          dispatch(EditblogData(_id,post))
          .then((res) =>{
-            console.log(res)
+            // console.log(res)
          }).catch((err) =>{
             console.log(err)
          })

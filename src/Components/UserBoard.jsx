@@ -9,10 +9,7 @@ const UserBoard = () => {
   const [Loading ,SetLoading] = useState(false)
   const dispatch = useDispatch()
   const Mypost = useSelector((store) => store.AppReducer.Mypost)
-    //  Setname(Mypost[0].postedby.name)
   
-  
-   console.log( "name",name)
 
  useEffect(() =>{
    SetLoading(true)

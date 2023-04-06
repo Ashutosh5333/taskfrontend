@@ -69,7 +69,7 @@ const MenuDrawer = () => {
               <Text mb="20px" color="rgba(117, 117, 117, 1)" cursor="pointer">Gift a membership</Text>
               <hr/>
               <Text onClick={handleLogOut} mt="15px" mb="20px" color="rgba(117, 117, 117, 1)" cursor="pointer">Sign out</Text>
-              <Text mb="20px" color="rgba(117, 117, 117, 1)" cursor="pointer">{data.email} </Text>
+              <Text mb="20px" color="rgba(117, 117, 117, 1)" cursor="pointer">{data?.email} </Text>
         
           </DrawerBody>
 

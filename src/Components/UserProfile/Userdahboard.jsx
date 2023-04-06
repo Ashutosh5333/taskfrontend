@@ -12,7 +12,7 @@ import UserEdit from '../UserEdit/UserEdit';
 const Userdahboard = () => {
     const dispatch = useDispatch()
     const Mypost = useSelector((store) => store.AppReducer.Mypost)
-     console.log(Mypost)
+    
   
    useEffect(() =>{
      dispatch(GetMypost)
@@ -22,7 +22,7 @@ const Userdahboard = () => {
    const handledelete = (_id) => {
        dispatch(getDeleteData(_id))
        .then((res) =>{
-        console.log(res)
+        // console.log(res)
        }).catch((err) =>{
         console.log(err)
        })
@@ -55,8 +55,7 @@ const Userdahboard = () => {
 
             <Box justifyContent={"center"} display={"flex"}  gap="5">
               <Text m="auto" mt="3" fontWeight={"600"}> {el.postedby.name} </Text>
-               <Text m="auto" mt="3" > . Saturday  </Text>
-               <Text mt="3" > 30 march </Text>
+              <Text m="auto" mt="3" > {new Date(el.createdAt).toDateString()} </Text>
             </Box>
 
      </Box>

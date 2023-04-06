@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Button, Image,  useColorModeValue, Text, Wrap, WrapItem, HStack,VStack,  useToast,  Tooltip, Flex, Heading, } from '@chakra-ui/react'
+import { Avatar, Box,  Image,  useColorModeValue, Text,  HStack,  Tooltip, Flex, Heading, } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { getDeleteData, getSingleblogData } from '../Redux/AppReducer/action'
+import {  getSingleblogData } from '../Redux/AppReducer/action'
 import {  BsFacebook,  BsTwitter,  BsLinkedin,  BsLink45Deg,  BsBookmarkPlus,} from "react-icons/bs";
-import { DeleteIcon } from '@chakra-ui/icons'
+
 import Skeltonlist from './Skeltonlist'
 
 const SingleBlog = () => {
@@ -45,7 +45,7 @@ const SingleBlog = () => {
               
               <Text fontSize={"lg"} fontWeight={"600"}>{single?.postedby.name} </Text>
               <Text color={lightColor}>
-               
+              <Text m="auto" mt="3" > {new Date(single?.createdAt).toDateString()} </Text>
               </Text>
             </Flex>
           </HStack>

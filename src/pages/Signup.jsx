@@ -34,7 +34,7 @@ export const Signup = () => {
     pic:url,
   });
 
-   console.log(post)
+  //  console.log(post)
  
 
   const handleChange = (e) => {
@@ -50,7 +50,7 @@ export const Signup = () => {
      
     dispatch(Signupdata(post))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (
           res.type === "GET_SIGNUP_SUCCESS" &&
           res.payload.data !== "user is already present"
