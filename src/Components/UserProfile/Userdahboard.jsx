@@ -1,19 +1,20 @@
-import { Avatar, Box, Button, Divider, Image, Text, Wrap, WrapItem } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { GetMypost, getDeleteData } from '../../Redux/AppReducer/action'
+import { Avatar, Box, Button, Divider, Image, Text, Wrap, WrapItem } from '@chakra-ui/react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { GetMypost, getDeleteData } from '../../Redux/AppReducer/action';
+import {UserSkelton} from "./UserSkeltonlist";
+
+
 
 
 const Userdahboard = () => {
-    const [Loading ,SetLoading] = useState(false)
     const dispatch = useDispatch()
     const Mypost = useSelector((store) => store.AppReducer.Mypost)
+     console.log(Mypost)
   
    useEffect(() =>{
-     SetLoading(true)
      dispatch(GetMypost)
-     SetLoading(false)
    },[])
       
    
@@ -32,6 +33,8 @@ const Userdahboard = () => {
   return (
     <>
     {
+       Mypost.length>0 ?
+
         Mypost.length > 0 && Mypost.map((el) =>{
         
         return    <Box key={el._id}  width={{base:"90vw",md:"60vw",lg:"70vw" }}  m="auto" gap="10">
@@ -58,19 +61,18 @@ const Userdahboard = () => {
      </Box>
 
 
+
     <Link to={`/blog/${el._id} `}> 
     
      <Box  display={"flex"} justifyContent={"space-between"} gap="5">
 
-        <Box width={"70vw"}  p="4">
 
+        <Box width={"70vw"}  p="4">
           <Text  textAlign={"start"} fontSize={{base:"1rem",md:"1.5rem",lg:"1.5rem" }} fontWeight={"600"}  noOfLines={{ base: 3, md: 2 }}>  {el.title}  </Text>
               
               <Box display={{ base: "none", md: "block" }} >
             <Text noOfLines={3}  textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1rem" }} >{el.description} </Text>
               </Box>
-
-           
         </Box>
 
              
@@ -93,7 +95,9 @@ const Userdahboard = () => {
   </Box>
 
 
-      })
+      }) 
+
+      : <UserSkelton />
       
 
 

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Text, Tooltip } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import {BiUserCircle} from "react-icons/bi"
 import MenuDrawer from './Drawer/MenuDrawer'
 
 const Navbar = () => {

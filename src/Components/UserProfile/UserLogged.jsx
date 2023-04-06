@@ -9,7 +9,7 @@ const UserLogged = () => {
 
   return (
     <>
-    <Box border={"3px solid red"} display={ { base:"row", md:"flex", lg:"flex"} } justifyContent={"space-between"} width={"95vw"} m="auto" mt="10" gap="5">
+    <Box  display={ { base:"row", md:"flex", lg:"flex"} } justifyContent={"space-between"} width={"95vw"} m="auto" mt="10" gap="5">
 
         
         <Box>

@@ -25,6 +25,8 @@ const Dashboard = () => {
   return (
     <>
      {
+       BlogData.length> 0 ? 
+
         BlogData.length > 0 && BlogData  && BlogData.map((el) =>{
         
           return    <Box key={el._id}  width={{base:"90vw",md:"90vw",lg:"90vw" }}  m="auto" gap="10">
@@ -71,7 +73,7 @@ const Dashboard = () => {
 
                
           <Box > 
-                  <Image 
+            <Image 
                    borderRadius={"10"}
                 marginY="auto"
                   maxW={{ base: "112px", sm: "130px", md: "200px" }}   src={el.pic} />
@@ -80,14 +82,13 @@ const Dashboard = () => {
        </Box>
        </Link>
      
-
-
       
     <Divider orientation='horizontal' />
     </Box>
 
 
         })
+        : <Skeltonlist/>
         
 
 

@@ -15,7 +15,7 @@ export const Signup = () => {
   const [url ,SetUrl] = useState("")
   const dispatch = useDispatch()
   const toast = useToast()
-  const navigate = useNavigate()
+ 
 
    const [post ,SetPost] = useState({
      name:"",
