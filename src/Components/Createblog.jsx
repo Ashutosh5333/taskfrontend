@@ -22,12 +22,23 @@ const Createblog = () => {
       dispatch(Addblogs(post))
         .then((res) =>{
           console.log(res)
-          toast({
-            position:"top",
-            status : "success",
-            title:"Blog Added Successfully"
-           })
+           if(res.type ==="ADD_DATA_SUCCESS" && res.payload.msg !== "data created sucessfully" ){
+            toast({
+              position:"top",
+              status : "error",
+              title:res.payload.err
+             })
+           }
+           else{
+            toast({
+              position:"top",
+              status : "success",
+              title:res.payload.msg
+             })
+           }
+         
         }).catch((err) =>{
+          
           console.log(err)
         })
       

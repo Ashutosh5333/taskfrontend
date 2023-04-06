@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [Loading ,SetLoading] = useState(false)
   const dispatch = useDispatch()
   const BlogData = useSelector((store) => store.AppReducer.BlogData)
-
+    console.log( "Blogdata",BlogData)
    
 
  useEffect(() =>{
@@ -25,9 +25,7 @@ const Dashboard = () => {
   return (
     <>
      {
-    
-
-        BlogData.length > 0 && BlogData.map((el) =>{
+        BlogData.length > 0 && BlogData  && BlogData.map((el) =>{
         
           return    <Box key={el._id}  width={{base:"90vw",md:"90vw",lg:"90vw" }}  m="auto" gap="10">
        
@@ -39,13 +37,13 @@ const Dashboard = () => {
                       className="image"
                       m="auto"
                       size={{ base: "md", md: "md", lg: "md" }}
-                      name={el.postedby.name}
+                      // name={el.postedby.name}
                     />
                   </WrapItem>
                 </Wrap>        
 
               <Box justifyContent={"center"} display={"flex"}  gap="5">
-                <Text m="auto" mt="3" fontWeight={"600"}> {el.postedby.name} </Text>
+                {/* <Text m="auto" mt="3" fontWeight={"600"}> {el?.postedby.name} </Text> */}
                  <Text m="auto" mt="3" > . Saturday  </Text>
                  <Text mt="3" > 30 march </Text>
               </Box>

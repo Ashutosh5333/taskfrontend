@@ -7,6 +7,9 @@ import Createblog from '../Components/Createblog';
 import SingleBlog from '../Components/SingleBlog';
 import SingnTablist from '../Components/SingnTablist';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import UserLogged from '../Components/UserProfile/UserLogged';
+
+
 
 const AllRoutes = () => {
   return (
@@ -14,11 +17,14 @@ const AllRoutes = () => {
      <Route  path='/'    element={<Home/>}/>
    
      <Route  path="/blog/:Id"    element={<SingleBlog/>}/>
+     
      <Route  path= '/creteb'  element={
        <PrivateRoute> 
      <Createblog/>
       </PrivateRoute>
      } />
+
+      <Route  path='/profile'  element={<UserLogged/>}/>
 
      <Route  path='/dash'  element={<Dashboard/>}/>
      <Route  path= '/user'  element={<UserBoard/>} />

@@ -11,7 +11,7 @@ const MenuDrawer = () => {
     const btnRef = React.useRef()
 
      const data = JSON.parse(localStorage.getItem("data"))
-      console.log(data)
+   
 
      const handleLogOut = () =>{
          localStorage.clear()
@@ -21,7 +21,7 @@ const MenuDrawer = () => {
 
   return (
     <>
-     <Avatar ref={btnRef} colorScheme='teal' onClick={onOpen}>
+     <Avatar ref={btnRef} size={"sm"} colorScheme='teal' onClick={onOpen}>
        
      </Avatar>
 
@@ -36,7 +36,7 @@ const MenuDrawer = () => {
           <DrawerCloseButton />
          
           <DrawerBody>
-          <Link href="/profile">
+          <Link to="/profile">
               <Flex alignItems="center" mb="20px" gap="10px" color="rgba(117, 117, 117, 1)" cursor="pointer">
                   <CiUser size="1.5em"/>
                   <Text>Profile</Text>

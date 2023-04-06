@@ -7,9 +7,8 @@ import MenuDrawer from './Drawer/MenuDrawer'
 const Navbar = () => {
 
     const token =  JSON.parse(localStorage.getItem("token"))
-    // console.log(token)
     const data = JSON.parse(localStorage.getItem("data"))
-     console.log(data)
+     
 
 
   return (
@@ -37,14 +36,7 @@ const Navbar = () => {
            <Text  fontSize={"1.2rem"} fontWeight="600"> Login  </Text>
            </Link>          
             }
-          
-
-           <Tooltip hasArrow label="User Profile" placement="top">
-              <Box cursor="pointer">
-                <BiUserCircle size={30}  />
-              </Box>
-           </Tooltip>
-
+        
       
        </Box>
       

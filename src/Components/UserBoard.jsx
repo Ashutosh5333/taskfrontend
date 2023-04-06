@@ -1,13 +1,39 @@
-import { Box,  Text } from '@chakra-ui/react'
-import React from 'react'
+import { Avatar, Box,  Text, Wrap, WrapItem } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetMypost } from '../Redux/AppReducer/action'
 
 
 const UserBoard = () => {
+  const [Loading ,SetLoading] = useState(false)
+  const dispatch = useDispatch()
+  const Mypost = useSelector((store) => store.AppReducer.Mypost)
+     console.log("datamypost" ,Mypost)
+   
+
+ useEffect(() =>{
+   SetLoading(true)
+   dispatch(GetMypost)
+   SetLoading(false)
+ },[])
+    
 
 
   return (
     <>
-     <Box border="3px solid gray" p="6"  width={{base:"90vw",md:"30vw",lg:"20vw" }} m="auto" >
+     <Box border="1px solid gray" p="6"  width={{base:"90vw",md:"25vw",lg:"20vw" }} m="auto" >
+
+
+
+       <Box  m="auto" p="4">
+                  <Avatar
+                      size={"xl"} 
+                    // name={el.postedby.name}
+                  />
+       </Box>
+
+
+
 
       <Box bg="black" color={"#fff"}  p="2" borderRadius={"10"}>
           <Text> Get Unlimited Topics  </Text>       
@@ -33,11 +59,9 @@ const UserBoard = () => {
 
          <Text  borderRadius={"10"} bg="gray.100" p="2"> Coding </Text>
 
-         {/* <Text  borderRadius={"10"} bg="gray.100" p="2"> Adventure</Text> */}
-
-    
        </Box>  
 
+     
 
 
 

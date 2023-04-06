@@ -159,7 +159,7 @@ return axios.delete(`https://super-pear-viper.cyclic.app/task/delete/${_id}`,{
 
 export const GetMypost = (dispatch) => {
    dispatch(MydatapostReq)
-   return axios.get(`https://super-pear-viper.cyclic.app/mypost` ,{
+   return axios.get(`https://super-pear-viper.cyclic.app/task` ,{
       headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`

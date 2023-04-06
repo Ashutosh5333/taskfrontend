@@ -21,34 +21,24 @@ const SingleBlog = () => {
    
 
 
-   const handleDelete = () =>{
-      dispatch(getDeleteData(single?._id))
-       .then((res) =>{
-         console.log(res)
-       }).catch((err) =>{
-        console.log(err)
-       })
-   }
-
-
 
 
   return (
     <>
-    <Box  width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto">
+    <Box   width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto" mt="10" p="6" >
      
      <Flex
           justifyContent="space-between"
           direction={{ base: "column", sm: "row" }}
           gap={{ base: 5, sm: 0 }}
         >
-          <HStack spacing={5}>
+          <HStack spacing={5} mb="5">
             <Avatar 
               name={single?.postedby.name}
             />
             <Flex direction="column">
               
-              <Text fontSize={"lg"}>{single?.postedby.name} </Text>
+              <Text fontSize={"lg"} fontWeight={"600"}>{single?.postedby.name} </Text>
               <Text color={lightColor}>
                
               </Text>
@@ -56,12 +46,8 @@ const SingleBlog = () => {
           </HStack>
           <hr />
   
-          <HStack spacing={5}>
-          <Tooltip hasArrow label="Delete Post" placement="top">
-              <Box cursor="pointer">
-                <DeleteIcon  onClick={handleDelete} size={20} color={lightColor} />
-              </Box>
-            </Tooltip>
+          <HStack spacing={5} mb="5">
+         
             <Tooltip hasArrow label="Share on Twitter" placement="top">
               <Box cursor="pointer">
                 <BsTwitter size={20} color={lightColor} />
@@ -94,8 +80,8 @@ const SingleBlog = () => {
           </HStack>
         </Flex> 
         
-       <Heading  textAlign={"start"}  > {single?.title}  </Heading>
-             <Box width={"100%"} > 
+       <Heading  textAlign={"start"} mb="5" > {single?.title}  </Heading>
+             <Box width={"100%"} mb="5"> 
                     <Image  
                      w={"100%"}
                     maxH="700px"
@@ -115,9 +101,7 @@ const SingleBlog = () => {
         
             
      
-         
-  
-  
+    
       </Box> 
    
       
