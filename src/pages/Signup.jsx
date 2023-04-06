@@ -28,42 +28,49 @@ export const Signup = () => {
           const {name,value} = e.target
           SetPost({...post,[name]:value})
       }
-
+   console.log(post)
+       console.log("url",url)
 
       const handleSubmit = () =>{
         Imagepost()
-        dispatch(Signupdata(post))
-        .then((res) =>{
-           console.log(res)
-      if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is already present"){
-             toast({
-              position:"top",
-              status : "success",
-              title:"user created Successfully Account"
-             })
+  //       dispatch(Signupdata(post))
+  //       .then((res) =>{
+  //          console.log(res)
+  //     if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is already present"){
+  //            toast({
+  //             position:"top",
+  //             status : "success",
+  //             title:"user created Successfully Account"
+  //            })
           
-      }
-      else{
+  //     }
+  //     else{
         
-        toast({
-          position : 'top',
-          status : "error",
-          title:"user Already exits try Another"
-      })
+  //       toast({
+  //         position : 'top',
+  //         status : "error",
+  //         title:"user Already exits try Another"
+  //     })
 
-      }
+  //     }
        
-   })
-   .catch((err)=>{
-     console.log(err)
-    toast({
-      position : 'top',
-      status : "error",
-      title:"Something went wrong"
-  })
+  //  })
+  //  .catch((err)=>{
+  //    console.log(err)
+  //   toast({
+  //     position : 'top',
+  //     status : "error",
+  //     title:"Something went wrong"
+  // })
 
-   })
+  //  })
     
+  }
+
+
+
+  const handleClickShow = () =>{
+     setShow(!show)
   }
 
 
@@ -169,7 +176,7 @@ export const Signup = () => {
                   h="1.75rem"
                   size="sm"
                   variant="link"
-        
+                 onClick={handleClickShow}
                 >
                   {show ? (
                     <ViewOffIcon color="gray.400" boxSize={5} />
@@ -180,6 +187,7 @@ export const Signup = () => {
               </InputRightElement>
             </InputGroup>
             <Button
+           
                onClick={handleSubmit}
               width="100%"
             colorScheme={colorScheme}

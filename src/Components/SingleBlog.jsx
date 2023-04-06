@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { getDeleteData, getSingleblogData } from '../Redux/AppReducer/action'
 import {  BsFacebook,  BsTwitter,  BsLinkedin,  BsLink45Deg,  BsBookmarkPlus,} from "react-icons/bs";
 import { DeleteIcon } from '@chakra-ui/icons'
+import Skeltonlist from './Skeltonlist'
 
 const SingleBlog = () => {
   const lightColor = useColorModeValue("#757575", "#9aa0a6");
@@ -25,7 +26,10 @@ const SingleBlog = () => {
 
   return (
     <>
-    <Box   width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto" mt="10" p="6" >
+    {
+        single ? 
+
+      <Box   width={{base:"80vw",md:"90vw",lg:"90vw" }}  m="auto" mt="10" p="6" spacing={3} >
      
      <Flex
           justifyContent="space-between"
@@ -34,6 +38,7 @@ const SingleBlog = () => {
         >
           <HStack spacing={5} mb="5">
             <Avatar 
+             src={single?.postedby.pic}
               name={single?.postedby.name}
             />
             <Flex direction="column">
@@ -91,19 +96,20 @@ const SingleBlog = () => {
             </Box>
   
        
-              <Box dangerouslySetInnerHTML={{ __html: single?.description }}/>
+              <Box fontSize={"1.2rem"} letterSpacing={2} textAlign={"start"} spacing={5} dangerouslySetInnerHTML={{ __html: single?.description }}/>
          
   
-            <Box textAlign={"start"} mt="4" mb="4" display={"flex"} >
-                 <Button justifyContent={"flex-start"} >  React  </Button>
-                 <Text textAlign={"start"} fontWeight={"600"} ml="4" mt="2">  5 min  </Text>            
-           </Box>
+           
         
             
-     
     
       </Box> 
    
+     : <Skeltonlist/>
+
+
+    }
+
       
 
     </>

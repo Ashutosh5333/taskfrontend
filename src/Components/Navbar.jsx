@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text, useColorMode } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import MenuDrawer from './Drawer/MenuDrawer'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 const Navbar = () => {
-
+  const {colorMode, toggleColorMode}= useColorMode()
     const token =  JSON.parse(localStorage.getItem("token"))
     const data = JSON.parse(localStorage.getItem("data"))
      
@@ -35,6 +36,8 @@ const Navbar = () => {
            <Text  fontSize={"1.2rem"} fontWeight="600"> Login  </Text>
            </Link>          
             }
+            
+            <Text  onClick={toggleColorMode} fontSize={"1.2rem"} > {colorMode === "light" ? <MoonIcon color="Dark" />  :  <SunIcon color="Light" />  }</Text>
         
       
        </Box>
