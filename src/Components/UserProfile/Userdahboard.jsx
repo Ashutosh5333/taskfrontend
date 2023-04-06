@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { GetMypost, getDeleteData } from '../../Redux/AppReducer/action';
 import {UserSkelton} from "./UserSkeltonlist";
+import UserEdit from '../UserEdit/UserEdit';
 
 
 
@@ -71,7 +72,7 @@ const Userdahboard = () => {
           <Text  textAlign={"start"} fontSize={{base:"1rem",md:"1.5rem",lg:"1.5rem" }} fontWeight={"600"}  noOfLines={{ base: 3, md: 2 }}>  {el.title}  </Text>
               
               <Box display={{ base: "none", md: "block" }} >
-            <Text noOfLines={3}  textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1rem" }} >{el.description} </Text>
+            <Text noOfLines={3}  textAlign={"start"} fontSize={{base:".8rem",md:"1rem",lg:"1.2rem" }} letterSpacing={2}   >{el.description} </Text>
               </Box>
         </Box>
 
@@ -87,9 +88,16 @@ const Userdahboard = () => {
      </Link>
    
 
-           <Box textAlign={"start"} ml="6" mt="4" mb="4" display={"flex"} >
+           <Box textAlign={"start"} ml="10" mt="4" mb="4" display={"flex"}  gap="10">
              <Button  onClick={() => handledelete(el._id)} justifyContent={"flex-start"} colorScheme='red'>  Delete post  </Button>          
-             </Box>
+
+              <Link to={`/task/${el._id}`}>
+             <Button   justifyContent={"flex-start"}>
+              <UserEdit/>
+              </Button>          
+              </Link>
+            
+          </Box>
     
   <Divider orientation='horizontal' />
   </Box>

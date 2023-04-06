@@ -8,6 +8,7 @@ import SingleBlog from '../Components/SingleBlog';
 import SingnTablist from '../Components/SingnTablist';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import UserLogged from '../Components/UserProfile/UserLogged';
+import Userdahboard from '../Components/UserProfile/Userdahboard';
 
 
 
@@ -24,7 +25,11 @@ const AllRoutes = () => {
       </PrivateRoute>
      } />
 
+
       <Route  path='/profile'  element={<UserLogged/>}/>
+
+      <Route  path='/task'  element={<Userdahboard/>}/>
+      <Route  path='/task/:id'  element={<Userdahboard/>}/>
 
      <Route  path='/dash'  element={<Dashboard/>}/>
      <Route  path= '/user'  element={<UserBoard/>} />

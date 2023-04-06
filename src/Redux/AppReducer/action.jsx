@@ -79,6 +79,24 @@ const Deletedatafai = () => {
   }
   }
 
+  
+const Taskupdatedreq = () =>{
+   return {
+      type: types.EDIT_TASK_FAILURE
+   }
+} 
+const Taskupdatedsucess = (payload) => {
+   return {
+      type :types.EDIT_TASK_SUCCESS,
+      payload,
+   }
+}
+const Taskupdatedfailure = () => {
+  return {
+      type :types.EDIT_TASK_REQUEST
+  }
+  }
+
 
          //  --------- My Post --------  //
 
@@ -99,6 +117,7 @@ const Deletedatafai = () => {
            }
          }
          
+
          let token = JSON.parse(localStorage.getItem("token"))
          //  console.log("tokenaction",token)
       // -------------  Add Blog  ------------- //
@@ -188,6 +207,22 @@ return axios.get(`https://super-pear-viper.cyclic.app/allblog/${_id}`,{
  return    dispatch(getsingledataSucess(res.data))
  }).catch((e)=>{
   return    dispatch(getsingledataFail())
+ })
+}
+
+   
+ export const EditblogData = (id,payload) => (dispatch) => {
+   dispatch(Taskupdatedreq())
+return axios.patch(`https://super-pear-viper.cyclic.app/task/update/${id}`,payload,{
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+})
+ .then((res)=>{
+ return    dispatch(Taskupdatedsucess(res.data))
+ }).catch((e)=>{
+  return    dispatch(Taskupdatedfailure())
  })
 }
 
