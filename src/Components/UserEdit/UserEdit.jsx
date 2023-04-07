@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Modal,  ModalOverlay,  ModalContent,  ModalBody,  useDisclosure,  Box,  Button,  Input,  Heading,  Text,} from "@chakra-ui/react";
+import { Modal,  ModalOverlay,  ModalContent,  ModalBody,  useDisclosure,  Box,  Button,  Input,  Heading,  Text, useToast,} from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { EditblogData, getSingleblogData } from "../../Redux/AppReducer/action";
 
 const UserEdit = () => {
+  const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
    const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const UserEdit = () => {
 
     const [post,SetPost] = useState({
          description:"",
+      
     })
 
     const [single ,Setsingle] = useState()
@@ -31,7 +33,22 @@ const UserEdit = () => {
     const handleupdated = (_id) => {
          dispatch(EditblogData(_id,post))
          .then((res) =>{
-            // console.log(res)
+           console.log(res)
+              if(res.type == "EDIT_TASK_SUCCESS" && res.payload.msg == "update data sucessfully"){
+                toast({
+                  position:"top",
+                  status : "success",
+                  title:res.payload.msg
+                 })
+              }  
+              else{
+                toast({
+                  position:"top",
+                  status : "error",
+                  title:res.payload.msg
+                 })
+              }
+           
          }).catch((err) =>{
             console.log(err)
          })
@@ -60,7 +77,11 @@ const UserEdit = () => {
               <Input placeholder="Description" 
                name="description"
                 onChange={handleChange}
-               fontSize={"1.2rem"} variant={"unstyled"} />
+               fontSize={"1.2rem"} variant={"unstyled"} 
+               mt="6" mb="6" 
+               />
+
+             
 
               <Divider orientation="horizontal" />
 

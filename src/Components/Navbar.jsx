@@ -113,9 +113,17 @@ const Navbar = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              <Link to="/profile">
-                <Text> profile</Text>{" "}
+
+               <Link to={"/creteb"}>
+                <Text fontSize={"1.2rem"} fontWeight="600">
+                  Write
+                </Text>
               </Link>
+
+              <Link to="/profile">
+                <Text  fontSize={"1.2rem"} fontWeight="600"> profile</Text>{" "}
+              </Link>
+
               <Link to="/singtab">
                 {token ? (
                   <MenuDrawer />

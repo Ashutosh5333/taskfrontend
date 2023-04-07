@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Button, Divider, Text, Image, Wrap, WrapItem } from '@chakra-ui/react'
+import { Avatar, Box, Button, Divider, Text, Image, Wrap, WrapItem, Input } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllblogData } from '../Redux/AppReducer/action'
 import Skeltonlist from './Skeltonlist'
@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 
 
 const Dashboard = () => {
-  
+  const [textinput ,SetTextinput] = useState("")
   const dispatch = useDispatch()
 
   const BlogData = useSelector((store) => store.AppReducer.BlogData)
  
-
+//  console.log( "Text",textinput)
 
  useEffect(() =>{
    dispatch(getAllblogData)
@@ -23,13 +23,29 @@ const Dashboard = () => {
 
   return (
     <>
+       <Box mt="10">
+
+         <Input placeholder='Search for title'
+          // name=""
+          onChange={(e) =>SetTextinput(e.target.value)}
+          />
+
+       </Box>
 
      
       {
        BlogData.length> 0 ? 
 
         BlogData.length > 0   &&  
-        BlogData.map((el) =>{
+        BlogData.filter((value) =>{
+           if(textinput == ""){
+             return value
+           }
+           else if (value.title.toLowerCase().includes(textinput.toLowerCase())){
+             return value
+           }
+        })
+        .map((el) =>{
         
           return    <Box key={el._id}  width={{base:"90vw",md:"90vw",lg:"90vw" }}  m="auto" mt="20" gap="10">
        
